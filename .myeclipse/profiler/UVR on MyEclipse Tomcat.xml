@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<entry key="profiler.settings.instrument.empty.methods">true</entry>
+<entry key="ProfilerCPUSettings_profile_runnables">true</entry>
+<entry key="ProfilerCPUSettings_filter_type">2</entry>
+<entry key="ProfilerMemorySettings_track_every">10</entry>
+<entry key="ProfilerMemorySettings_mode">4</entry>
+<entry key="ProfilerCPUSettings_root_classes">com.anand.bo.**
+com.anand.command.**
+com.anand.controller.**
+com.anand.dao.**
+com.anand.dto.**
+com.anand.exception.**
+com.anand.service.**
+com.anand.util.**
+com.anand.validator.**
+com.anand.view.**
+com.anand.vo.**
+</entry>
+<entry key="ProfilerCPUSettings_filter_value">com.anand.bo.*,
+com.anand.command.*,
+com.anand.controller.*,
+com.anand.dao.*,
+com.anand.dto.*,
+com.anand.exception.*,
+com.anand.service.*,
+com.anand.util.*,
+com.anand.validator.*,
+com.anand.view.*,
+com.anand.vo.*</entry>
+<entry key="profiler.settings.istrument.getter.setter.methods">true</entry>
+<entry key="myeclipse.profiling.mode">0</entry>
+<entry key="ProfilerMemorySettings_stacktraces">-1</entry>
+</properties>

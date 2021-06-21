@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+	<bean id="accountService" class="com.anand.service.AccountServiceImpl">
+		<property name="registrationDao" ref="registrationDao"></property>
+		<property name="securityDao" ref="securityDao"></property>
+		<property name="utility" ref="utility"></property>
+	</bean>
+
+	<bean id="searchFriendsService" class="com.anand.service.SearchFriendsServiceImpl">
+		<property name="securityDao" ref="securityDao"></property>
+		<property name="utility" ref="utility"></property>
+	</bean>
+	<bean id="articleService" class="com.anand.service.ArticleServiceImpl">
+		<property name="articledDao" ref="articledDao"></property>
+		<property name="utility" ref="utility"></property>
+	</bean>
+
+
+	<bean id="messageService" class="com.anand.service.MessageServiceImpl">
+		<property name="messageDao" ref="messageDao"></property>
+		<property name="utility" ref="utility"></property>
+	</bean>
+
+	<bean id="dashboardService" class="com.anand.service.DashboardServiceImpl">
+		<property name="dashboardDao" ref="dashboardDao"></property>
+		<property name="utility" ref="utility"></property>
+	</bean>
+
+
+</beans>

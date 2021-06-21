@@ -1,0 +1,171 @@
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
+
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basename" value="errors" />
+	</bean>
+
+	<bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+		<property name="mappings">
+			<props>
+				<prop key="/home.htm">homeController</prop>
+				<prop key="/registration.htm">registrationController</prop>
+				<prop key="/login.htm">loginController</prop>
+				<prop key="/about.htm">aboutController</prop>
+				<prop key="/admin-home.htm">adminHomeController</prop>
+				<prop key="/user-home.htm">userHomeController</prop>
+
+				<prop key="/search-friends.htm">searchFriendsController</prop>
+				<prop key="/friend-request.htm">friendRequestController</prop>
+				<prop key="/view-friend-request.htm">viewAllFriendRequestController</prop>
+				<prop key="/view-friends.htm">viewAllFriendsController</prop>
+
+				<prop key="/post-article.htm">postArticleController</prop>
+				<prop key="/read-message.htm">readMessageController</prop>
+
+				<prop key="/send-message.htm">sendMessageController</prop>
+				<prop key="/inbox.htm">inboxController</prop>
+				
+				
+				<prop key="/view-group-memeber.htm">viewGroupMemeberController</prop>
+				<prop key="/user-vitality-ranking.htm">userVitalityRankingController</prop>
+				
+				
+
+				
+				<prop key="/intraction.htm">intractionController</prop>
+				<prop key="/ri-intraction.htm">riIntractionController</prop>
+				<prop key="/avg-intraction-user.htm">avgIntractionUserController</prop>
+				<prop key="/user-vitality-score.htm">userVitalityScoreController</prop>
+				
+				
+				<prop key="/dashboard.htm">dashboardController</prop>
+
+				<prop key="/error-page.htm">errorPageController</prop>
+				<prop key="/logout.htm">logoutController</prop>
+				<prop key="/like.htm">likeController</prop>
+			</props>
+		</property>
+	</bean>
+
+
+	<bean id="userVitalityScoreController"
+		class="org.springframework.web.servlet.mvc.ParameterizableViewController" />
+	<bean id="avgIntractionUserController"
+		class="org.springframework.web.servlet.mvc.ParameterizableViewController" />
+	<bean id="riIntractionController"
+		class="org.springframework.web.servlet.mvc.ParameterizableViewController" />
+	<bean id="intractionController"
+		class="org.springframework.web.servlet.mvc.ParameterizableViewController" />
+		
+	<bean id="userVitalityRankingController"
+		class="org.springframework.web.servlet.mvc.ParameterizableViewController" />
+
+
+	<bean id="homeController"
+		class="org.springframework.web.servlet.mvc.ParameterizableViewController" />
+	<bean id="adminHomeController"
+		class="org.springframework.web.servlet.mvc.ParameterizableViewController" />	
+<bean id="userHomeController"  class="org.springframework.web.servlet.mvc.ParameterizableViewController"/>
+	<bean id="logoutController"
+		class="org.springframework.web.servlet.mvc.ParameterizableViewController" />
+	<bean id="errorPageController"
+		class="org.springframework.web.servlet.mvc.ParameterizableViewController" />
+
+	<bean id="aboutController"
+		class="org.springframework.web.servlet.mvc.ParameterizableViewController" />
+
+	<!--articleService
+		<bean id="registrationController"
+		class="com.anand.controller.RegistrationController"> <property
+		name="accountService" ref="accountService"></property> </bean>
+	-->
+
+		
+		
+		
+		<bean id="dashboardController" class="com.anand.controller.DashboardController">
+		<property name="dashboardService" ref="dashboardService"></property>
+	</bean>
+		
+		<bean id="likeController" class="com.anand.controller.LikeController">
+		<property name="articleService" ref="articleService"></property>
+	</bean>
+		
+	<bean id="viewGroupMemeberController" class="com.anand.controller.GroupMemberController">
+		<property name="dashboardService" ref="dashboardService"></property>
+	</bean>
+
+
+	<bean id="inboxController" class="com.anand.controller.InboxController">
+		<property name="messageService" ref="messageService"></property>
+	</bean>
+
+	<bean id="readMessageController" class="com.anand.controller.ReadMessageController">
+		<property name="messageService" ref="messageService"></property>
+	</bean>
+
+	<bean id="viewAllFriendsController" class="com.anand.controller.ViewAllFriendsController">
+		<property name="searchFriendsService" ref="searchFriendsService"></property>
+	</bean>
+
+	<bean id="viewAllFriendRequestController" class="com.anand.controller.ViewAllFriendRequestController">
+		<property name="searchFriendsService" ref="searchFriendsService"></property>
+	</bean>
+	<bean id="friendRequestController" class="com.anand.controller.FriendRequestController">
+		<property name="searchFriendsService" ref="searchFriendsService"></property>
+	</bean>
+
+	<bean id="searchFriendsController" class="com.anand.controller.SearchFriendsController">
+		<property name="searchFriendsService" ref="searchFriendsService"></property>
+	</bean>
+
+
+	<bean id="postArticleController" class="com.anand.controller.PostArticleController">
+		<property name="formView" value="post-article" />
+		<property name="commandClass" value="com.anand.command.ArticleCommand" />
+		<property name="commandName" value="postArticleCmd" />
+		<property name="sessionForm" value="true" />
+		<property name="articleService" ref="articleService" />
+	</bean>
+
+	<bean id="registrationController" class="com.anand.controller.RegistrationController">
+		<property name="formView" value="registration" />
+		<property name="commandClass" value="com.anand.command.RegistrationCommand" />
+		<property name="commandName" value="regCmd" />
+		<property name="sessionForm" value="true" />
+		<property name="accountService" ref="accountService" />
+	</bean>
+	<bean id="loginController" class="com.anand.controller.LoginController">
+		<property name="formView" value="login" />
+		<property name="commandClass" value="com.anand.command.LoginCommand" />
+		<property name="commandName" value="loginCmd" />
+		<property name="sessionForm" value="true" />
+		<property name="accountService" ref="accountService" />		
+		<property name="articleService" ref="articleService" />
+	</bean>
+
+
+	<bean id="sendMessageController" class="com.anand.controller.MessageController">
+		<property name="formView" value="send-message" />
+		<property name="commandClass" value="com.anand.command.MessageCommand" />
+		<property name="commandName" value="msgCmd" />
+		<property name="sessionForm" value="true" />
+		<property name="messageService" ref="messageService" />
+	</bean>
+
+
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+
+
+
+</beans>
